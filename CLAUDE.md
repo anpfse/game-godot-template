@@ -47,10 +47,3 @@
 - 状态机：状态继承 `State`，通过 `transitioned` 信号请求切换；`StateMachine._ready()`
   会 `await owner.ready`，因此状态机须作为已保存场景的一部分使用。
 - 新增可重映射按键时，同步更新 `SettingsManager.REMAPPABLE_ACTIONS` 与 `project.godot` 的 `[input]`。
-
-## Git 提交
-
-- 提交作者**只保留** `VmythV <meiwd1314@gmail.com>`（即全局 git 配置），
-  **不要**添加 `Co-Authored-By` 尾注，**不要**用其它邮箱覆盖作者。
-- 远程 `origin` 走 SSH：`git@github.com:anpfse/game-godot-template.git`。
-- 仅在用户明确要求时提交/推送。
