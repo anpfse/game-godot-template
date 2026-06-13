@@ -1,0 +1,20 @@
+# Godot 4+ 专用忽略规则
+.godot/
+/android/
+
+# 导出产物
+export.cfg
+/builds/
+*.exe
+*.pck
+*.zip
+*.dmg
+*.apk
+*.aab
+
+# 系统/编辑器杂项
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

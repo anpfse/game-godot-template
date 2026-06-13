@@ -1,0 +1,34 @@
+name: Godot CI
+
+# 在推送与 PR 时校验工程能被 Godot 正常导入（解析所有脚本与场景）。
+# 如需自动导出，取消下方 “导出” 步骤的注释并配置 export_presets.cfg。
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  import:
+    name: Import check (headless)
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.6.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Import project
+        run: |
+          godot --headless --path . --import --quit-after 200
+
+      # --- 可选：导出（需先在编辑器里配置 export_presets.cfg）---
+      # - name: Export Linux
+      #   run: |
+      #     mkdir -p builds/linux
+      #     godot --headless --path . --export-release "Linux/X11" builds/linux/game.x86_64
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: linux-build
+      #     path: builds/linux
