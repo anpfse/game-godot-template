@@ -14,12 +14,15 @@ var _continue_button: Button
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(center)
+
 	var vbox := VBoxContainer.new()
-	vbox.set_anchors_preset(Control.PRESET_CENTER)
 	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
 	vbox.custom_minimum_size = Vector2(260, 0)
 	vbox.add_theme_constant_override("separation", 12)
-	add_child(vbox)
+	center.add_child(vbox)
 
 	var title := Label.new()
 	title.text = "Godot 2D 模板"

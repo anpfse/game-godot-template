@@ -16,11 +16,14 @@ func _ready() -> void:
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(center)
+
 	var vbox := VBoxContainer.new()
-	vbox.set_anchors_preset(Control.PRESET_CENTER)
 	vbox.custom_minimum_size = Vector2(400, 0)
 	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	add_child(vbox)
+	center.add_child(vbox)
 
 	_label = Label.new()
 	_label.text = "加载中…"

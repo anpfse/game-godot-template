@@ -24,11 +24,14 @@ func _ready() -> void:
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_panel.add_child(bg)
 
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_panel.add_child(center)
+
 	var vbox := VBoxContainer.new()
-	vbox.set_anchors_preset(Control.PRESET_CENTER)
 	vbox.custom_minimum_size = Vector2(220, 0)
 	vbox.add_theme_constant_override("separation", 12)
-	_panel.add_child(vbox)
+	center.add_child(vbox)
 
 	var title := Label.new()
 	title.text = "已暂停"
